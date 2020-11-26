@@ -14,17 +14,10 @@
         <!--  侧边栏-->
         <el-aside width="200px">
           <el-menu router>
-            <el-submenu index="1">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>导航一</span>
-              </template>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
 
-            </el-submenu>
-            <el-menu-item index="/problemList">problems</el-menu-item>
-            <el-menu-item index="/status">status</el-menu-item>
+            <el-menu-item index="/user">用户信息</el-menu-item>
+            <el-menu-item index="/problemList">题目</el-menu-item>
+            <el-menu-item index="/status">提交状态</el-menu-item>
           </el-menu>
         </el-aside>
 
@@ -52,18 +45,10 @@ export default {
 
   methods:{
     logout:function(){
-      const url='http://localhost:8081/';
-      console.log("请求退出登录");
-      this
-          .$axios
-          .get(url+'logout')
-          .then(function (){
-            sessionStorage.setItem("isLogin", false);
-            sessionStorage.removeItem("userid" );
-          })
-          .catch(function (error) { // 请求失败处理
-            console.log(error);
-          });
+      sessionStorage.setItem("isLogin", false);
+      sessionStorage.removeItem("userid" );
+      //
+      location="/login"
 
     },
 

@@ -1,11 +1,6 @@
 <template>
   <div>
 
-    <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '../' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item :to="{ path: '/' }">题目</el-breadcrumb-item>
-    </el-breadcrumb>
-
     <el-card>
       <el-input placeholder="请输入要查找的题号" v-model="query" >
         <el-button slot="append" icon="el-icon-search" v-on:click="getProblemList"></el-button>

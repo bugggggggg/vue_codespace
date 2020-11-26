@@ -7,6 +7,7 @@ import ProblemList from "@/components/ProblemList";
 import Status from "@/components/Status";
 import Problem from "@/components/Problem";
 import Submit from "@/components/Submit";
+import User from "@/components/User";
 
 
 Vue.use(Router)
@@ -46,6 +47,9 @@ Vue.use(Router)
             },{
                 path:'/problemList/submit',
                 component: Submit
+            },{
+                path:'/user',
+                component: User
             }]
 
         }
