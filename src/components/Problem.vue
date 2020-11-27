@@ -9,23 +9,23 @@
 
       <el-row>
         <h2>题目描述</h2>
-        <div>{{problemDescription}}</div>
+        <pre>{{problemDescription}}</pre>
       </el-row>
       <el-row>
         <h2>输入格式</h2>
-        <div>{{problemInputFormat}}</div>
+        <pre>{{problemInputFormat}}</pre>
       </el-row>
       <el-row>
         <h2>输出格式</h2>
-        <div>{{problemOutputFormat}}</div>
+        <pre>{{problemOutputFormat}}</pre>
       </el-row>
       <el-row>
         <h2>输入样例</h2>
-        <div>{{problemSampleInput}}</div>
+        <pre>{{problemSampleInput}}</pre>
       </el-row>
       <el-row>
         <h2>输出样例</h2>
-        <div>{{problemSampleOutput}}</div>
+        <pre>{{problemSampleOutput}}</pre>
       </el-row>
       <el-row>
         <h2>时间空内存限制</h2>
@@ -120,6 +120,11 @@ export default {
 }
 .clearfix:after {
   clear: both
+}
+
+pre{
+  font-weight: bold;
+  font-size: large;
 }
 
 </style>

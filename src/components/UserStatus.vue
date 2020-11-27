@@ -25,7 +25,7 @@
         <el-table-column label="评测结果" prop="submissionJudgeResult" >
         </el-table-column>
 
-        <el-table-column label="提交时间" prop="submissionSubmitTime" >
+        <el-table-column label="提交时间" prop="submissionSubmitTime" width="200px">
         </el-table-column>
 
         <el-table-column label="消耗内存" prop="submissionUsedMemory" >
@@ -64,24 +64,28 @@
 
 <script>
 export default {
-  name: "Status",
+  name: "UserStatus",
   data(){
     return {
       statusList:[],
       total:0,
       pagenum:1,
       pagesize:5,
-      query:''
+      query:'',
+      userId:'3'
     }
   },
   created() {
+    this.userId=sessionStorage.getItem('userid');
     this.getStatusList();
   },
   methods: {
     getStatusList: function () {
       const url = 'http://localhost:8081/';
-      this.$axios.get(url + 'statusList',
-          {params: {pagenum: this.pagenum, pagesize: this.pagesize, query: this.query}})
+      this.$axios.get(url + 'status',
+          {params: {pagenum: this.pagenum,
+              pagesize: this.pagesize,
+              userId: this.userId}})
           .then((response) => {
             console.log(response);
             const data = response.data;
@@ -106,6 +110,7 @@ export default {
       this.getStatusList();
     },
     showCode:function (statusInfo){
+      console.log(statusInfo.submissionCode);
       this.$alert('<pre>'+statusInfo.submissionCode+'</pre>', '代码', {
         dangerouslyUseHTMLString: true
       });

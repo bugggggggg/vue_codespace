@@ -54,7 +54,7 @@ export default {
   created() {
     this.problemId=window.location.href.split("?")[1].split("=")[1];
 
-   // this.userId=sessionStorage.getItem("userid");
+    this.userId=sessionStorage.getItem("userid");
   },
   methods:{
     submit:function (){
@@ -70,7 +70,7 @@ export default {
                 })
           .then((response)=>{
             console.log(response);
-
+            location='/status';
           })
     },
 

@@ -12,12 +12,18 @@
       <el-container>
 
         <!--  侧边栏-->
-        <el-aside width="200px">
+        <el-aside width="300px">
           <el-menu router>
+            <el-submenu index="/">
+              <template slot="title">用户</template>
+              <el-menu-item index="/user">用户信息</el-menu-item>
+              <el-menu-item index="/user/statusList">提交记录</el-menu-item>
+              <el-menu-item index="/user/blogList">个人博客</el-menu-item>
+            </el-submenu>
 
-            <el-menu-item index="/user">用户信息</el-menu-item>
             <el-menu-item index="/problemList">题目</el-menu-item>
             <el-menu-item index="/status">提交状态</el-menu-item>
+            <el-menu-item index="/blog/list">博客</el-menu-item>
           </el-menu>
         </el-aside>
 

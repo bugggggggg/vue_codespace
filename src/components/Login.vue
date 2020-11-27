@@ -17,11 +17,13 @@
         </el-form-item>
         <el-form-item>
           <el-button type="primary" class="form-button" v-on:click="login" round>登录</el-button>
+
         </el-form-item>
 
 
         <el-form-item>
           <el-button type="primary" class="form-button" v-on:click="toRegister" round>去注册</el-button>
+          <el-button type="primary" class="form-button" v-on:click="getPassword" round>邮箱找回密码</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -91,6 +93,18 @@ export default {
     },
     toRegister:function(){
       location="./register"
+    },
+    getPassword:function (){
+
+      const url='http://localhost:8081/';
+      this.$axios.get(url+'getPasswordByEmail',
+          {params: {email:this.email}})
+
+          .then((response)=>{
+              const data=response.data;
+              console.log(data.msg);
+              alert(data.msg);
+          })
     }
 
 

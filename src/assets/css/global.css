@@ -17,3 +17,13 @@ body,
 .el-card{
     margin-bottom: 15px;
 }
+
+div{
+    overflow: auto;
+}
+
+.el-message-box {
+    width: 1000px;
+    overflow: auto;
+    text-overflow:ellipsis;
+}

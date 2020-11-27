@@ -25,7 +25,7 @@ export default {
     }
   },
   created() {
-    //this.userId=sessionStorage.getItem("userid");
+    this.userId=sessionStorage.getItem("userid");
     this.getUserInformation();
   },
   methods:{

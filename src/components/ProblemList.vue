@@ -18,9 +18,16 @@
 
        <el-table-column label="题目链接">
          <template slot-scope="scope">
-           <el-button type="primary" v-on:click="toProblem(scope.row)"></el-button>
+           <el-button type="primary" v-on:click="toProblem(scope.row)">查看题目</el-button>
          </template>
        </el-table-column>
+       <el-table-column label="通过率">
+         <template slot-scope="scope">
+           <p>{{scope.row.problemAcceptCnt}}/{{scope.row.problemSubmitCnt}}</p>
+
+         </template>
+       </el-table-column>
+
 
      </el-table>
 
@@ -59,7 +66,7 @@ export default {
       this.$axios.get(url+'problemList',
           {params: {pagenum:this.pagenum,pagesize:this.pagesize,query:this.query}})
       .then((response)=>{
-        console.log(response);
+        //console.log(response);
         const data=response.data;
         if(data.code===200){
           this.problemList=data.data.problemList;
