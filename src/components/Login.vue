@@ -45,7 +45,8 @@ export default {
   methods:{
     login:function (){
       console.log("请求登录");
-      const url='http://localhost:8081/';
+      //const url='http://localhost:8081/';
+      const url='http://106.15.234.251:8081/';
       this.$axios.post(url+'login',
           {email:this.email,password:this.password})
           .then(function (response){
@@ -77,18 +78,13 @@ export default {
     },
 
     logout:function(){
-      const url='http://localhost:8081/';
+      //const url='http://localhost:8081/';
+      //const url='http://106.15.234.251:8081/';
       console.log("请求退出登录");
-      this
-        .$axios
-          .get(url+'logout')
-      .then(function (){
+
         sessionStorage.setItem("isLogin", false);
         sessionStorage.removeItem("userid" );
-      })
-          .catch(function (error) { // 请求失败处理
-            console.log(error);
-          });
+
 
     },
     toRegister:function(){
@@ -96,7 +92,8 @@ export default {
     },
     getPassword:function (){
 
-      const url='http://localhost:8081/';
+      //const url='http://localhost:8081/';
+      const url='http://106.15.234.251:8081/';
       this.$axios.get(url+'getPasswordByEmail',
           {params: {email:this.email}})
 

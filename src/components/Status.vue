@@ -79,7 +79,8 @@ export default {
   },
   methods: {
     getStatusList: function () {
-      const url = 'http://localhost:8081/';
+      //const url='http://localhost:8081/';
+      const url='http://106.15.234.251:8081/';
       this.$axios.get(url + 'statusList',
           {params: {pagenum: this.pagenum, pagesize: this.pagesize, query: this.query}})
           .then((response) => {

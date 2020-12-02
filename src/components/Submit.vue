@@ -1,16 +1,15 @@
 <template>
-  <el-card class="box-card">
+  <el-card >
     <div slot="header">
       <span>提交</span>
     </div>
 
-    <el-select v-model="language" placeholder="请选择语言" @change="selectLanguage">
+    <el-select v-model="language" placeholder="请选择语言" v-on:change="selectLanguage">
       <el-option
           v-for="item in languages"
           :key="item.value"
           :label="item.label"
-          :value="item.value"
-          >
+          :value="item.value">
       </el-option>
     </el-select>
 
@@ -37,11 +36,7 @@ export default {
           value: '0',
           label: 'c++'
         }
-        // ,
-        // {
-        //   value: '1',
-        //   label: 'java'
-        // }
+
 
       ],
       language:'c++',
@@ -60,7 +55,8 @@ export default {
     submit:function (){
       //console.log(this.code);
 
-      const url='http://localhost:8081/';
+      //const url='http://localhost:8081/';
+      const url='http://106.15.234.251:8081/';
       this.$axios.post(url+'problem/judge',
           {language:this.language,
                 languageId:this.languageId,
@@ -70,6 +66,9 @@ export default {
                 })
           .then((response)=>{
             console.log(response);
+            alert(response.data.data.submissionJudgeResult
+                + ""
+                +response.data.data.error);
             location='/status';
           })
     },

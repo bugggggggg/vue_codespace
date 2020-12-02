@@ -2,9 +2,9 @@
     <el-container class="home-container">
 
       <el-header>
-        <div>
-          <img src="" alt="">
-          <span>codespace</span>
+        <div style="display: flex;align-items: center;">
+          <img src="../assets/avater.png" alt="logo" style="width: 5%;height: 5%;">
+          <span style="font-size:large;">codespace</span>
         </div>
         <el-button type="primary" v-on:click="logout">退出</el-button>
       </el-header>

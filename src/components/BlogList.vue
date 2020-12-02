@@ -1,7 +1,8 @@
 <template>
   <div>
     <div >
-      <el-button type="primary" v-on:click="newBlog">新建博客</el-button>
+      <router-link :to="{path: '/blog/edit', query:{blogId:0}}">新建博客</router-link>
+
       <el-timeline >
         <el-timeline-item :timestamp="blog.submitDate" placement="top" v-for="blog in blogList" :key="blog.blogId">
           <el-card>
@@ -41,7 +42,8 @@ export default {
   },
   methods:{
     getBlogList:function (){
-      const url='http://localhost:8081/';
+      //const url='http://localhost:8081/';
+      const url='http://106.15.234.251:8081/';
       this.$axios.get(url+'blog/blogList',
           {params: {pagenum:this.pagenum,pagesize:this.pagesize}})
           .then((response)=>{

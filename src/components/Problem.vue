@@ -69,7 +69,8 @@ export default {
   },
   methods:{
     getProblem:function (){
-      const url='http://localhost:8081/';
+      //const url='http://localhost:8081/';
+      const url='http://106.15.234.251:8081/';
       this.$axios.get(url+'problem',
           {params: {problemId:this.problemId}})
           .then((response)=>{
@@ -96,7 +97,9 @@ export default {
     },
 
     submit:function (){
-      location='/problemList/submit?problemId='+this.problemId;
+
+      location='/submit?problemId='+this.problemId;
+      //location='/problem?problemId=1001';
     }
   }
 }

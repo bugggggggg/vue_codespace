@@ -48,10 +48,10 @@ Vue.use(Router)
             },{
                  path:'/status',component:Status
             },{
-                path:'/problemList/problem',
+                path:'/problem',
                 component: Problem
             },{
-                path:'/problemList/submit',
+                path:'/submit',
                 component: Submit
             },{
                 path:'/user',

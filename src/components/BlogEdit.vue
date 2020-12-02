@@ -36,7 +36,8 @@ export default {
   },
   methods:{
     getBlog:function (){
-      const url='http://localhost:8081/';
+      //const url='http://localhost:8081/';
+      const url='http://106.15.234.251:8081/';
       this.$axios.get(url+'blog/getByBlogId',
           {params: {blogId:this.blogId}})
           .then((response)=>{
@@ -64,7 +65,8 @@ export default {
         alert("标题不能为空");
         return;
       }
-      const url='http://localhost:8081/';
+      //const url='http://localhost:8081/';
+      const url='http://106.15.234.251:8081/';
       this.$axios.post(url+'blog/save',
           {blogId:this.blogId,
                 content:this.blogContent,

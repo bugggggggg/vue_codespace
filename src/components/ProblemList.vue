@@ -53,7 +53,7 @@ export default {
       problemList:[],
       total:0,
       pagenum:1,
-      pagesize:1,
+      pagesize:5,
       query:''
     }
   },
@@ -62,7 +62,8 @@ export default {
   },
   methods:{
     getProblemList:function(){
-      const url='http://localhost:8081/';
+      //const url='http://localhost:8081/';
+      const url='http://106.15.234.251:8081/';
       this.$axios.get(url+'problemList',
           {params: {pagenum:this.pagenum,pagesize:this.pagesize,query:this.query}})
       .then((response)=>{
@@ -85,7 +86,7 @@ export default {
 
     toProblem:function(problemInfo){
       console.log(problemInfo.problemId);
-      location=location.href+'/problem?problemId='+problemInfo.problemId;
+      location='/problem?problemId='+problemInfo.problemId;
     },
 
     handleCurrentChange:function(newnum){
