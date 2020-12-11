@@ -1,5 +1,6 @@
 <template>
-  <div id="main">
+
+  <div id="main" class="blogedit_container">
     <Header></Header>
     <div class="m-content">
       <el-form label-width="80px">
@@ -85,5 +86,9 @@ export default {
 </script>
 
 <style scoped>
-
+.blogedit_container {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
 </style>

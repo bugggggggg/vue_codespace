@@ -1,8 +1,11 @@
 <template>
-  <div>
+  <div class="userbloglist_container">
     <div >
-      <router-link :to="{path: '/blog/edit', query:{blogId:0}}">新建博客</router-link>
+      <el-button type="primary" @click="newBlog()" style="padding: 7px">新建博客</el-button>
+      <!-- <router-link :to="{path: '/blog/edit', query:{blogId:0}}">新建博客</router-link> -->
 
+      <br>
+      <br>
       <el-timeline >
         <el-timeline-item :timestamp="blog.submitDate" placement="top" v-for="blog in blogList" :key="blog.blogId">
           <el-card>
@@ -22,9 +25,10 @@
         background
         layout="prev, pager, next"
         @current-change="handleCurrentChange"
-        :total="total" :page-size="pagesize" :current-page="pagenum">
+        :total="total"
+        :page-size="pagesize"
+        :current-page="pagenum">
     </el-pagination>
-
 
   </div>
 </template>
@@ -34,31 +38,31 @@ export default {
   name: "UserBlogList",
   data(){
     return {
-      blogList:[],
-      total:0,
-      pagenum:1,
-      pagesize:2,
+      blogList: [],
+      total: 0,
+      pagenum: 1,
+      pagesize: 2,
       userId: '3'
     }
   },
   created() {
-    this.userId=sessionStorage.getItem('userid');
+    this.userId = sessionStorage.getItem('userid');
     this.getBlogList();
   },
   methods:{
-    getBlogList:function (){
+    getBlogList:function() {
       //const url='http://localhost:8081/';
-      const url='http://106.15.234.251:8081/';
-      this.$axios.get(url+'blog/getByUserId',
-          {params: {pagenum:this.pagenum,
+      const url = 'http://106.15.234.251:8081/';
+      this.$axios.get(url + 'blog/getByUserId',
+          { params: { pagenum:this.pagenum,
                   pagesize:this.pagesize,
                   userId:this.userId }})
-          .then((response)=>{
+          .then((response) => {
             //console.log(response);
-            const data=response.data;
-            if(data.code===200){
-              this.blogList=data.data.blogList;
-              this.total=data.data.total;
+            const data = response.data;
+            if(data.code === 200){
+              this.blogList = data.data.blogList;
+              this.total = data.data.total;
 
               //console.log(this.problemList);
             }
@@ -70,18 +74,30 @@ export default {
     },
 
     handleCurrentChange:function(newnum){
-      this.pagenum=newnum;
+      this.pagenum = newnum;
       console.log(this.pagenum);
       this.getBlogList();
     },
-
-    newBlog:function (){
-      location='/blog/edit?blogId=0';
+    
+    newBlog: function() {
+      this.$router.push({
+        path: '/blog/edit',
+        query: {
+          blogId: 0
+        }
+      })
     }
+    // newBlog:function (){
+    //   location='/blog/edit?blogId=0';
+    // }
   }
 }
 </script>
 
 <style scoped>
-
+.userbloglist_container {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 </style>

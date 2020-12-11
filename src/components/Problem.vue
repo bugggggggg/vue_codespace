@@ -1,9 +1,10 @@
 <template>
-  <div>
+
+  <div class="problem_container">
 
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-        <h1>{{problemId}}.{{problemName}}</h1>
+        <h1>{{ problemId }}.{{ problemName }}</h1>
         <el-button style="display: flex " type="primary" v-on:click="submit">提交</el-button>
       </div>
 
@@ -37,11 +38,9 @@
         <pre class="hint">
         {{problemHint}}
       </pre>
-
       </el-row>
+
     </el-card>
-
-
 
   </div>
 </template>
@@ -68,25 +67,25 @@ export default {
     this.getProblem();
   },
   methods:{
-    getProblem:function (){
+    getProblem:function() {
       //const url='http://localhost:8081/';
-      const url='http://106.15.234.251:8081/';
-      this.$axios.get(url+'problem',
+      const url = 'http://106.15.234.251:8081/';
+      this.$axios.get(url + 'problem',
           {params: {problemId:this.problemId}})
-          .then((response)=>{
+          .then((response) => {
             //console.log(response);
             console.log("题目获取成功")
-            const data=response.data;
-            if(data.code===200){
-              this.problemDescription=data.data.problemDescription;
-              this.problemHint=data.data.problemHint;
-              this.problemInputFormat=data.data.problemInputFormat
-              this.problemOutputFormat=data.data.problemOutputFormat
-              this.problemMemoryLimit=data.data.problemMemoryLimit
-              this.problemName=data.data.problemName
-              this.problemSampleInput=data.data.problemSampleInput
-              this.problemSampleOutput=data.data.problemSampleOutput
-              this.problemTimeLimit=data.data.problemTimeLimit
+            const data = response.data;
+            if(data.code === 200){
+              this.problemDescription = data.data.problemDescription;
+              this.problemHint = data.data.problemHint;
+              this.problemInputFormat = data.data.problemInputFormat
+              this.problemOutputFormat = data.data.problemOutputFormat
+              this.problemMemoryLimit = data.data.problemMemoryLimit
+              this.problemName = data.data.problemName
+              this.problemSampleInput = data.data.problemSampleInput
+              this.problemSampleOutput = data.data.problemSampleOutput
+              this.problemTimeLimit = data.data.problemTimeLimit
               console.log(data.data);
             }
             else{
@@ -106,6 +105,13 @@ export default {
 </script>
 
 <style scoped>
+
+.problem_container {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .hint{
   border-style:solid;
   border-color: aliceblue;

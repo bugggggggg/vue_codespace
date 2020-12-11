@@ -14,6 +14,7 @@ import BlogDetail from "@/components/BlogDetail";
 import UserBlogList from "@/components/UserBlogList";
 import UserStatus from "@/components/UserStatus";
 import Code from "@/components/Code";
+import News from "@/components/News";
 
 Vue.use(Router)
 
@@ -108,6 +109,12 @@ const routes = [{
             component: BlogDetail,
             meta: {
                 name: '博客详情'
+            }
+        }, {
+            path: '/news',
+            component: News,
+            meta: {
+                name: '资讯'
             }
         }]
 
