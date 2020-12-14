@@ -30,6 +30,16 @@
           <el-row>
             邮箱:{{ email }}
           </el-row>
+
+
+          <!-- 这里修改了                   -->
+          <el-row>通过的题目：</el-row>
+          <el-row v-for="id in acceptProblem" :key="id">
+              <span>{{id}} </span>
+          </el-row>
+
+
+
         </el-card>
       </el-col>
 
@@ -87,6 +97,7 @@ export default {
       userId:1,
       username:'',
       email:'',
+      acceptProblem:[],
       labelPosition: 'right',
       user: {
         name: '',
@@ -104,6 +115,7 @@ export default {
   created() {
     this.userId=sessionStorage.getItem("userid");
     this.getUserInformation();
+    this.getAcceptProblem();
   },
   methods:{
     getUserInformation:function (){
@@ -124,7 +136,27 @@ export default {
               alert(data.msg);
             }
           })
-    }
+    },
+
+    getAcceptProblem:function (){
+      const url='http://localhost:8081/';
+      //const url='http://106.15.234.251:8081/';
+      this.$axios.get(url + 'user/accept',
+          {params: {userId:this.userId}})
+          .then((response) => {
+            console.log(response);
+            const data = response.data;
+            if (data.code === 200) {
+              this.acceptProblem = data.data.acceptList;
+
+
+              //console.log(this.problemList);
+            } else {
+              console.log(data.msg);
+              alert(data.msg);
+            }
+          })
+    },
   }
 }
 </script>

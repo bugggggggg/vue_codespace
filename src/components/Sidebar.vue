@@ -45,6 +45,16 @@
         <i class="el-icon-document"></i>
         <a slot="title">博客</a>
       </el-menu-item>
+
+
+
+      <el-menu-item index="/rank">
+        <i class="el-icon-s-marketing"></i>
+        <a slot="title">排名</a>
+      </el-menu-item>
+
+
+
       <el-menu-item index="/news">
         <i class="el-icon-s-marketing"></i>
         <a slot="title">资讯</a>

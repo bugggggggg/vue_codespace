@@ -6,6 +6,7 @@
       <div slot="header" class="clearfix">
         <h1>{{ problemId }}.{{ problemName }}</h1>
         <el-button style="display: flex " type="primary" v-on:click="submit">提交</el-button>
+        <el-button style="display: flex " type="primary" v-on:click="toDiscussion">讨论</el-button>
       </div>
 
       <el-row>
@@ -99,6 +100,9 @@ export default {
 
       location='/submit?problemId='+this.problemId;
       //location='/problem?problemId=1001';
+    },
+    toDiscussion:function (){
+      location='/discussion?problemId='+this.problemId;
     }
   }
 }

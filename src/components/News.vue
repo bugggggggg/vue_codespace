@@ -12,7 +12,7 @@
                     style="width: 90px; height: 160px"
                     :src="item.envelopePic"
                     :preview-src-list="item.envelopePic"
-                    overflow: hidden
+
                   />
                 </el-col>
                 <el-col :span="18" :xs="24">

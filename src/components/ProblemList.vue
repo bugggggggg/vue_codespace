@@ -1,45 +1,51 @@
 <template>
+  <div>
 
-  <div class="problemlist_container">
+    <el-link icon="el-icon-edit" v-if="administrator">
+      <router-link :to="{path: '/problemEdit'}">创建题目</router-link>
+    </el-link>
 
-    <el-card>
-      <el-input placeholder="请输入要查找的题号" v-model="query" >
-        <el-button slot="append" icon="el-icon-search" v-on:click="getProblemList"></el-button>
-      </el-input>
-    </el-card>
+    <div class="problemlist_container">
 
-    <el-row>
-     <el-table :data="problemList" >
-       <el-table-column label="题目序号" prop="problemId">
-       </el-table-column>
+      <el-card>
+        <el-input placeholder="请输入要查找的题号" v-model="query" >
+          <el-button slot="append" icon="el-icon-search" v-on:click="getProblemList"></el-button>
+        </el-input>
+      </el-card>
 
-       <el-table-column label="题目名称" prop="problemName" >
-       </el-table-column>
+      <el-row>
+       <el-table :data="problemList" >
+         <el-table-column label="题目序号" prop="problemId">
+         </el-table-column>
 
-       <el-table-column label="题目链接">
-         <template slot-scope="scope">
-           <el-button type="primary" v-on:click="toProblem(scope.row)">查看题目</el-button>
-         </template>
-       </el-table-column>
+         <el-table-column label="题目名称" prop="problemName" >
+         </el-table-column>
 
-       <el-table-column label="通过率">
-         <template slot-scope="scope">
-           <p>{{scope.row.problemAcceptCnt}}/{{scope.row.problemSubmitCnt}}</p>
-         </template>
-       </el-table-column>
+         <el-table-column label="题目链接">
+           <template slot-scope="scope">
+             <el-button type="primary" v-on:click="toProblem(scope.row)">查看题目</el-button>
+           </template>
+         </el-table-column>
 
-     </el-table>
+         <el-table-column label="通过率">
+           <template slot-scope="scope">
+             <p>{{scope.row.problemAcceptCnt}}/{{scope.row.problemSubmitCnt}}</p>
+           </template>
+         </el-table-column>
 
-      <!--分页-->
-      <el-pagination
-          background
-          layout="prev, pager, next"
-          @current-change="handleCurrentChange"
-          :total="total"
-          :page-size="pagesize"
-          :current-page="pagenum">
-      </el-pagination>
-    </el-row>
+       </el-table>
+
+        <!--分页-->
+        <el-pagination
+            background
+            layout="prev, pager, next"
+            @current-change="handleCurrentChange"
+            :total="total"
+            :page-size="pagesize"
+            :current-page="pagenum">
+        </el-pagination>
+      </el-row>
+    </div>
   </div>
 </template>
 
@@ -49,6 +55,7 @@ export default {
   name: "ProblemList",
   data(){
     return {
+      administrator:false,
       problemList:[],
       total:0,
       pagenum:1,
@@ -57,6 +64,11 @@ export default {
     }
   },
   created() {
+    if(sessionStorage.getItem("userid")==="5")
+    {
+      this.administrator=true;
+    }
+
     this.getProblemList();
   },
   methods:{

@@ -33,11 +33,13 @@
         <el-table-column label="消耗时间" prop="submissionUsedTime" >
         </el-table-column>
 
+        <!--
         <el-table-column label="查看代码"  >
           <template slot-scope="scope">
             <el-button type="primary" v-on:click="showCode(scope.row)">代码</el-button>
           </template>
         </el-table-column>
+        -->
 
         <el-table-column label="查看完整代码"  >
           <template slot-scope="scope">

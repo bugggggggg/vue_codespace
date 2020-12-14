@@ -15,6 +15,9 @@ import UserBlogList from "@/components/UserBlogList";
 import UserStatus from "@/components/UserStatus";
 import Code from "@/components/Code";
 import News from "@/components/News";
+import Rank from "@/components/Rank";
+import ProblemEdit from "@/components/ProblemEdit";
+import Dicussion from "@/components/Dicussion";
 
 Vue.use(Router)
 
@@ -51,6 +54,12 @@ const routes = [{
                 name: '题目'
             }
         }, {
+            path: '/problemEdit',
+            component: ProblemEdit,
+            meta: {
+                name: '编辑题目'
+            }
+        },{
             path: '/status',
             component: Status,
             meta: {
@@ -115,6 +124,18 @@ const routes = [{
             component: News,
             meta: {
                 name: '资讯'
+            }
+        },{
+            path: '/rank',
+            component: Rank,
+            meta: {
+                name: '排名'
+            }
+        },{
+            path: '/discussion',
+            component: Dicussion,
+            meta: {
+                name: '讨论'
             }
         }]
 
