@@ -5,8 +5,8 @@
     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <h1>{{ problemId }}.{{ problemName }}</h1>
-        <el-button style="display: flex " type="primary" v-on:click="submit">提交</el-button>
-        <el-button style="display: flex " type="primary" v-on:click="toDiscussion">讨论</el-button>
+        <el-button style="display: flex " type="primary" v-on:click="submit" >提交</el-button>
+        <el-button style="display: flex " type="primary" v-on:click="toDiscussion" >讨论</el-button>
       </div>
 
       <el-row>
@@ -60,11 +60,17 @@ export default {
       problemOutputFormat: '',
       problemSampleInput:'',
       problemSampleOutput: '',
-      problemTimeLimit:1000
+      problemTimeLimit:1000,
+
+     // isContest:false
     }
   },
   created() {
     this.problemId=window.location.href.split("?")[1].split("=")[1];
+    // if(window.location.href.split("?")[1].split("&")[1].split("=")[1]==='true'){
+    //   this.isContest=true;
+    // }
+
     this.getProblem();
   },
   methods:{

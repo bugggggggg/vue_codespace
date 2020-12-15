@@ -18,6 +18,15 @@ import News from "@/components/News";
 import Rank from "@/components/Rank";
 import ProblemEdit from "@/components/ProblemEdit";
 import Dicussion from "@/components/Dicussion";
+import ContestList from "@/components/ContestList";
+import ContestEdit from "@/components/ContestEdit";
+import ContestDetail from "@/components/ContestDetail";
+import ContestProblemList from "@/components/ContestProblemList";
+import ContestRank from "@/components/ContestRank";
+import ContestStatus from "@/components/ContestStatus";
+import ContestSubmit from "@/components/ContestSubmit";
+import ContestProblemDetail from "@/components/ContestProblemDetail";
+
 
 Vue.use(Router)
 
@@ -137,7 +146,72 @@ const routes = [{
             meta: {
                 name: '讨论'
             }
-        }]
+        },
+
+
+            {
+                path:'/contestList',
+                component: ContestList,
+                meta:{
+                    name:'比赛'
+                }
+            },{
+                path:'/contest/edit',
+                component: ContestEdit,
+                meta:{
+                    name:'新建比赛'
+                }
+            },{
+                path:'/contest',
+                component: ContestDetail,
+                meta:{
+                    name:'比赛'
+                },
+                children:[
+                    {
+                        path:'/contest/problem',
+                        component: ContestProblemList,
+                        meta:{
+                            name:'比赛题目'
+                        }
+                    },
+                    {
+                        path:'/contest/rank',
+                        component: ContestRank,
+                        meta:{
+                            name:'比赛排名'
+                        }
+                    },
+                    {
+                        path:'/contest/status',
+                        component: ContestStatus,
+                        meta:{
+                            name:'比赛过题状态'
+                        }
+                    },
+                    {
+                        path:'/contest/submit',
+                        component: ContestSubmit,
+                        meta:{
+                            name:'比赛提交'
+                        }
+                    },
+                    {
+                        path:'/contest/problemDetail',
+                        component: ContestProblemDetail,
+                        meta:{
+                            name:'题目'
+                        }
+                    }
+
+                ]
+            }
+
+
+
+
+
+        ]
 
     }
 

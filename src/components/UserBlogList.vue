@@ -41,7 +41,7 @@ export default {
       blogList: [],
       total: 0,
       pagenum: 1,
-      pagesize: 2,
+      pagesize: 3,
       userId: '3'
     }
   },

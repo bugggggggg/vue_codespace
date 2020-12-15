@@ -53,6 +53,10 @@
         <a slot="title">排名</a>
       </el-menu-item>
 
+      <el-menu-item index="/contestList">
+        <i class="el-icon-s-marketing"></i>
+        <a slot="title">比赛</a>
+      </el-menu-item>
 
 
       <el-menu-item index="/news">

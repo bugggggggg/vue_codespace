@@ -4,7 +4,7 @@
 
     <el-table
         ref="singleTable"
-        :data="rankList"
+        :data="statusList"
         highlight-current-row
         style="width: 100%">
       <el-table-column
@@ -17,13 +17,8 @@
           width="120">
       </el-table-column>
       <el-table-column
-          property="username"
-          label="用户名"
-          width="120">
-      </el-table-column>
-      <el-table-column
-          property="acceptCnt"
-          label="过题数">
+          property="acceptList"
+          label="过题编号">
       </el-table-column>
     </el-table>
 
@@ -38,35 +33,35 @@
     </el-pagination>
 
   </div>
-
 </template>
 
 <script>
 export default {
-  name: "Rank",
+  name: "ContestRank",
   data(){
     return {
-      rankList:[],
+      statusList:[],
       total:0,
       pagenum:1,
       pagesize:20,
+      contestId: 0
     }
   },
   created() {
-
+    this.contestId=sessionStorage.getItem("contestId");
     this.getRankList();
   },
   methods:{
     getRankList:function() {
       //const url='http://localhost:8081/';
       const url = 'http://106.15.234.251:8081/';
-      this.$axios.get(url + 'allRank',
-          { params: { pagenum: this.pagenum, pagesize: this.pagesize}})
+      this.$axios.get(url + 'contest/rank',
+          { params: { pagenum: this.pagenum, pagesize: this.pagesize,contestId:this.contestId}})
           .then((response) => {
             //console.log(response);
             const data = response.data;
             if(data.code === 200){
-              this.rankList = data.data.rankList;
+              this.statusList = data.data.statusList;
               this.total = data.data.total;
 
               //console.log(this.problemList);

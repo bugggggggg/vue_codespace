@@ -41,11 +41,6 @@
         </el-table-column>
         -->
 
-        <el-table-column label="查看完整代码"  >
-          <template slot-scope="scope">
-            <el-button type="primary" v-on:click="showAllCode(scope.row)">完整代码</el-button>
-          </template>
-        </el-table-column>
 
       </el-table>
 
@@ -67,14 +62,16 @@ export default {
   name: "Status",
   data(){
     return {
+      userId:0,
       statusList:[],
       total:0,
       pagenum:1,
-      pagesize:5,
+      pagesize:10,
       query:''
     }
   },
   created() {
+    //this.userId = sessionStorage.getItem("userid");
     this.getStatusList();
   },
   methods: {

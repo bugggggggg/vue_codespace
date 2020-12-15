@@ -1,5 +1,5 @@
 <template>
-
+<div>
   <el-card class="problemsubmit_container">
     <div slot="header">
       <span>提交</span>
@@ -25,6 +25,7 @@
     <br>
     <el-button type="primary" v-on:click="submit">提交</el-button>
   </el-card>
+</div>
 </template>
 
 <script>
