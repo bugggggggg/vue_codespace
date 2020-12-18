@@ -8,34 +8,56 @@
 
         <el-row>
           <h2>题目描述</h2>
-          <pre>{{problemDescription}}</pre>
+          <el-scrollbar :native="false" noresize="false">
+            <pre>{{ problemDescription }}</pre>
+          </el-scrollbar>
+          <!-- <pre>{{problemDescription}}</pre> -->
         </el-row>
         <el-row>
           <h2>输入格式</h2>
-          <pre>{{problemInputFormat}}</pre>
+          <el-scrollbar :native="false" noresize="false">
+            <pre>{{ problemInputFormat }}</pre>
+          </el-scrollbar>
+          <!-- <pre>{{problemInputFormat}}</pre> -->
         </el-row>
         <el-row>
           <h2>输出格式</h2>
-          <pre>{{problemOutputFormat}}</pre>
+          <el-scrollbar :native="false" noresize="false">
+            <pre>{{ problemOutputFormat }}</pre>
+          </el-scrollbar>
+          <!-- <pre>{{problemOutputFormat}}</pre> -->
         </el-row>
         <el-row>
           <h2>输入样例</h2>
-          <pre>{{problemSampleInput}}</pre>
+          <el-scrollbar :native="false" noresize="false">
+            <pre>{{ problemSampleInput }}</pre>
+          </el-scrollbar>
+          <!-- <pre>{{problemSampleInput}}</pre> -->
         </el-row>
         <el-row>
           <h2>输出样例</h2>
-          <pre>{{problemSampleOutput}}</pre>
+          <el-scrollbar :native="false" noresize="false">
+            <pre>{{ problemSampleOutput }}</pre>
+          </el-scrollbar>
+          <!-- <pre>{{problemSampleOutput}}</pre> -->
         </el-row>
         <el-row>
           <h2>时间空内存限制</h2>
-          <div>时间限制:{{problemTimeLimit}}s</div>
-          <div>内存限制:{{problemMemoryLimit}}KB</div>
+          <el-scrollbar :native="false" noresize="false">
+            <pre>时间限制:{{ problemTimeLimit }}s</pre>
+            <pre>内存限制:{{ problemMemoryLimit }}KB</pre>
+          </el-scrollbar>
+          <!-- <div>时间限制:{{problemTimeLimit}}s</div>
+          <div>内存限制:{{problemMemoryLimit}}KB</div> -->
         </el-row>
         <el-row>
           <h2>提示</h2>
-          <pre class="hint">
-        {{problemHint}}
-      </pre>
+          <el-scrollbar :native="false" noresize="false">
+            <pre class="hint">{{ problemHint }}</pre>
+          </el-scrollbar>
+          <!-- <pre class="hint">
+            {{problemHint}}
+          </pre> -->
         </el-row>
 
       </el-card>
@@ -103,5 +125,30 @@ export default {
 </script>
 
 <style scoped>
+.el-card {
+  width: auto;
+}
 
+.hint{
+  border-style:solid;
+  border-color: aliceblue;
+}
+
+.item {
+  margin-bottom: 18px;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both
+}
+
+pre {
+  font-weight: bold;
+  font-size: large;
+}
 </style>

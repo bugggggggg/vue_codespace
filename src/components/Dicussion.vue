@@ -1,13 +1,18 @@
 <template>
-<div>
+<div class="discussion_container">
 
-  讨论
-
-  <el-input type="textarea" v-model="content">
-
+  <div>讨论</div>
+  <br>
+  <el-input type="textarea" v-model="content" placeholder="请输入你的讨论" class="input_discussion">
   </el-input>
-  <el-button type="primary" v-on:click="comment">发表评论</el-button>
 
+  <el-button type="primary" v-on:click="comment" class="btn_comment">发表评论</el-button>
+
+  <br>
+  <br>
+  <br>
+  <div>讨论汇总</div>
+  <br>
   <el-row>
     <el-timeline>
       <el-timeline-item :timestamp="discussion.discussionTime" placement="top" v-for="discussion in discussionList" :key="discussion.discussionId">
@@ -102,5 +107,17 @@ export default {
 </script>
 
 <style scoped>
+.discussion_container {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
 
+.input_discussion {
+  height: 100px;
+}
+
+.btn_comment {
+  margin-left: 93%;
+}
 </style>

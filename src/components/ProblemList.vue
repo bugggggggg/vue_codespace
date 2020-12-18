@@ -1,11 +1,13 @@
 <template>
   <div>
 
-    <el-link icon="el-icon-edit" v-if="administrator">
-      <router-link :to="{path: '/problemEdit'}">创建题目</router-link>
-    </el-link>
-
     <div class="problemlist_container">
+
+      <el-link icon="el-icon-edit" v-if="administrator">
+        <router-link :to="{path: '/problemEdit'}">创建题目</router-link>
+      </el-link>
+      <br>
+      <br>
 
       <el-card>
         <el-input placeholder="请输入要查找的题号" v-model="query" >

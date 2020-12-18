@@ -58,6 +58,12 @@ export default {
       verifyCode:'',
     }
   },
+  mounted() {
+    document.querySelector('body').setAttribute('style', 'background-color: aliceblue')
+  },
+  beforeDestroy() {
+    document.querySelector('body').removeAttribute('style')
+  },
   methods:{
     getVerifyCode:function() {
       console.log("申请邮箱验证码");
@@ -142,8 +148,8 @@ export default {
 <style scoped>
 .page {
   width: 100%;
-  height: 100%;
-  background-color: aliceblue;
+  /* height: 100%;
+  background-color: aliceblue; */
 }
 
 .box {
@@ -190,6 +196,7 @@ export default {
 
 .btnCode {
   margin-left: 15px;
+  padding: 11px;
 }
 
 .register {

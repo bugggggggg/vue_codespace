@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="contestEdit_container">
 
     <div>
       <el-form >
@@ -165,5 +165,9 @@ export default {
 </script>
 
 <style scoped>
-
+.contestEdit_container {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 </style>

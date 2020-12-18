@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <el-button type="primary" v-on:click="toAddContest">新建比赛</el-button>
-
-
-
-
+  <div class="contestList_container">
+    <el-button type="primary" v-on:click="toAddContest" style="padding: 12px">新建比赛</el-button>
+    <br>
+    <br>
 
     <el-row>
       <el-timeline>
         <el-timeline-item :timestamp="item.contestStartTime" placement="top" v-for="(item,index) in contestList" :key="index">
           <el-card>
-            <div>比赛名字:{{item.contestName}}</div>
-            <div>比赛描述:{{item.contestNotes}}</div>
-            <div>开始时间:{{item.contestStartTime}}</div>
-            <div>结束时间:{{item.contestEndTime}}</div>
+            <div>比赛名字: {{item.contestName}}</div>
+            <div>比赛描述: {{item.contestNotes}}</div>
+            <div>开始时间: {{item.contestStartTime}}</div>
+            <div>结束时间: {{item.contestEndTime}}</div>
             <el-button type="primary" v-on:click="participate(item.contestId)" v-if="!participateStatusList[index] && statusList[index]<1">参加</el-button>
             <el-button type="primary" v-on:click="toparticipate(item.contestId)"
                        v-if="statusList[index]===-1 && participateStatusList[index]">进入比赛</el-button>
@@ -68,8 +66,6 @@ export default {
               this.participateStatusList=data.data.participateStatusList;
               this.total = data.data.total;
 
-
-
               console.log(this.statusList);
             }
             else{
@@ -77,9 +73,6 @@ export default {
               alert(data.msg);
             }
           })
-
-
-
 
     },
     toAddContest:function(){
@@ -123,5 +116,9 @@ export default {
 </script>
 
 <style scoped>
-
+.contestList_container {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 </style>

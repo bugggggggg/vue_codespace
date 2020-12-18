@@ -3,7 +3,7 @@
   <el-aside class="sidebar">
 
     <el-menu router :default-active="activeIndex" :collapse="this.$store.state.sideBarCollapse">
-        <img src="../assets/tongji_logo.png" class="avatar"/>
+      <img src="../assets/tongji_logo.png" class="avatar"/>
 
         <!-- <el-image
             style="width: 50px; height: 50px"
@@ -46,21 +46,18 @@
         <a slot="title">博客</a>
       </el-menu-item>
 
-
-
       <el-menu-item index="/rank">
         <i class="el-icon-s-marketing"></i>
         <a slot="title">排名</a>
       </el-menu-item>
 
       <el-menu-item index="/contestList">
-        <i class="el-icon-s-marketing"></i>
+        <i class="el-icon-s-flag"></i>
         <a slot="title">比赛</a>
       </el-menu-item>
 
-
       <el-menu-item index="/news">
-        <i class="el-icon-s-marketing"></i>
+        <i class="el-icon-s-management"></i>
         <a slot="title">资讯</a>
       </el-menu-item>
 

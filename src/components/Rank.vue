@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="rank_container">
     <el-row>排名</el-row>
 
     <el-table
@@ -90,5 +90,9 @@ export default {
 </script>
 
 <style scoped>
-
+.rank_container {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 </style>

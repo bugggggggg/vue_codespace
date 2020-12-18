@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div>new problem</div>
+  <div class="problemEdit_container">
+    <div>NEW PROBLEM</div>
     <div>
       <el-form >
         <el-form-item label="标题" >
@@ -125,5 +125,9 @@ export default {
 </script>
 
 <style scoped>
-
+.problemEdit_container {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 </style>

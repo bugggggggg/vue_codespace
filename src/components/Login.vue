@@ -54,6 +54,12 @@ export default {
       password:''
     }
   },
+  mounted() {
+    document.querySelector('body').setAttribute('style', 'background-color: aliceblue')
+  },
+  beforeDestroy() {
+    document.querySelector('body').removeAttribute('style')
+  },
   methods:{
     login:function () {
       console.log("请求登录");
@@ -123,10 +129,11 @@ export default {
 </script>
 
 <style scoped>
+
 .page {
   width: 100%;
-  height: 100%;
-  background-color: aliceblue;
+  /* height: 100%; */
+  /* background-color: aliceblue; */
 }
 
 .box {
