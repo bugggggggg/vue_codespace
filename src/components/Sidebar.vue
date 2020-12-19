@@ -61,6 +61,11 @@
         <a slot="title">资讯</a>
       </el-menu-item>
 
+      <el-menu-item index="/game">
+        <i class="el-icon-s-shop"></i>
+        <a slot="title">游戏</a>
+      </el-menu-item>
+
     </el-menu>
   </el-aside>
 

@@ -26,6 +26,7 @@ import ContestRank from "@/components/ContestRank";
 import ContestStatus from "@/components/ContestStatus";
 import ContestSubmit from "@/components/ContestSubmit";
 import ContestProblemDetail from "@/components/ContestProblemDetail";
+import Game from "@/components/Game";
 
 
 Vue.use(Router)
@@ -146,6 +147,12 @@ const routes = [{
                 meta: {
                     name: '讨论'
                 }
+            }, {
+                path: 'game',
+                component: Game,
+                meta: {
+                    name: '游戏'
+                }
             },
 
 
@@ -205,6 +212,8 @@ const routes = [{
 
                 ]
             }
+
+
 
 
 
