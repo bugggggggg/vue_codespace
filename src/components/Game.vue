@@ -136,7 +136,7 @@
 </template>
 
 <script>
-import Dicussion from './Dicussion.vue';
+import Dicussion from './Probelm/Dicussion.vue';
 
 // Pokemon宝可梦常量
 console.clear();
