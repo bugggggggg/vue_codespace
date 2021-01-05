@@ -49,7 +49,7 @@
       <el-row>
         <h2>时间空内存限制</h2>
         <el-scrollbar :native="false" noresize="false">
-          <pre>时间限制:{{ problemTimeLimit }}s</pre>
+          <pre>时间限制:{{ problemTimeLimit }}ms</pre>
           <pre>内存限制:{{ problemMemoryLimit }}KB</pre>
         </el-scrollbar>
         <!-- <div>时间限制:{{problemTimeLimit}}s</div>
