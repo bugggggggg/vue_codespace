@@ -11,6 +11,7 @@
         </el-form-item>
         <el-form-item label="比赛时间" >
           <el-date-picker
+              value-format="yyyy-MM-dd HH:mm:ss"
               v-model="contest.contestTime"
               type="datetimerange"
               range-separator="至"
@@ -90,16 +91,22 @@ export default {
 
     submit:function (){
 
-      if((new Date()).getTime()>this.contest.contestTime[0].getTime()){
+      if((new Date()).getTime()>(new Date(this.contest.contestTime[0])).getTime()){
         alert("开始时间不能在过去!");
         return;
       }
 
-      if(this.contest.contestTime[0].getTime()>this.contest.contestTime[1].getTime()){
+      if((new Date(this.contest.contestTime[0])).getTime()>(new Date(this.contest.contestTime[1])).getTime()){
         alert("时间不合理!");
         return;
       }
+      // this.contest.contestStartTime=this.contest.contestTime[0].toLocaleDateString().replace(/\//g, "-")
+      //     + "T" + this.contest.contestTime[0].toTimeString().substr(0, 8);
+      //
+      // this.contest.contestEndTime=this.contest.contestTime[1].toLocaleDateString().replace(/\//g, "-")
+      //     + "T" + this.contest.contestTime[1].toTimeString().substr(0, 8);
 
+      //console.log(this.contest.contestTime[0])
       //console.log(this.problem);
       if(this.problem.length===0){
         alert("请选择比赛的题目!");
@@ -116,18 +123,13 @@ export default {
       }
       //console.log(this.contest.contestTime[1].getTime());
 
-      if(this.contest.contestTime[1].getTime()
-          -this.contest.contestTime[0].getTime()<60000*30){
+      if((new Date(this.contest.contestTime[1])).getTime()
+          -(new Date(this.contest.contestTime[0])).getTime()<60000*30){
         alert("比赛时间必须大于30分钟");
         return;
       }
 
-      this.contest.contestStartTime=this.contest.contestTime[0].toLocaleDateString().replace(/\//g, "-")
-          + "T" + this.contest.contestTime[0].toTimeString().substr(0, 8);
 
-      this.contest.contestEndTime=this.contest.contestTime[1].toLocaleDateString().replace(/\//g, "-")
-          + "T" + this.contest.contestTime[1].toTimeString().substr(0, 8);
-      console.log(this.contest.contestStartTime);
 
 
       if(this.contest.contestName==='') {
@@ -137,10 +139,11 @@ export default {
       }
 
 
+
       // console.log(this.contest.contestName);
-      // console.log(this.contest.contestStartTime);
+      console.log(this.contest.contestTime[0].split(' ')[0]+'T'+this.contest.contestTime[0].split(' ')[1]);
       // console.log(this.contest.contestNote);
-      // console.log(this.contest.contestEndTime);
+      console.log(this.contest.contestTime[1]);
       // console.log(this.contest.contestProblems);
       //const url='http://localhost:8081/';
       const url='http://106.15.234.251:8081/';
@@ -148,8 +151,8 @@ export default {
           {
             contestName:this.contest.contestName,
             contestNotes:this.contest.contestNote,
-            contestStartTime:this.contest.contestStartTime,
-            contestEndTime:this.contest.contestEndTime,
+            contestStartTime:this.contest.contestTime[0].split(' ')[0]+'T'+this.contest.contestTime[0].split(' ')[1],
+            contestEndTime:this.contest.contestTime[1].split(' ')[0]+'T'+this.contest.contestTime[1].split(' ')[1],
             contestProblems:this.contest.contestProblems
           })
           .then((response)=>{

@@ -55,7 +55,7 @@
         <i class="el-icon-s-flag"></i>
         <a slot="title">比赛</a>
       </el-menu-item>
-
+<!--
       <el-menu-item index="/news">
         <i class="el-icon-s-management"></i>
         <a slot="title">资讯</a>
@@ -65,7 +65,7 @@
         <i class="el-icon-s-shop"></i>
         <a slot="title">游戏</a>
       </el-menu-item>
-
+      -->
     </el-menu>
   </el-aside>
 

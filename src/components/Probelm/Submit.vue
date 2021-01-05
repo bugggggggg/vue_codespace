@@ -68,7 +68,7 @@ export default {
           .then((response) => {
             console.log(response);
             alert(response.data.data.submissionJudgeResult
-                + ""
+                + "   "
                 +response.data.data.error);
             location='/status';
           })

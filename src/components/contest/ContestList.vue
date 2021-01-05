@@ -12,6 +12,11 @@
             <div>比赛描述: {{item.contestNotes}}</div>
             <div>开始时间: {{item.contestStartTime}}</div>
             <div>结束时间: {{item.contestEndTime}}</div>
+            <div v-if="participateStatusList[index]">已报名参加</div>
+            <div v-if="statusList[index]===1">
+              比赛已经结束<br/>
+              <el-button type="primary" v-on:click="toRank(item.contestId)">查看比赛结果</el-button>
+            </div>
             <el-button type="primary" v-on:click="participate(item.contestId)" v-if="!participateStatusList[index] && statusList[index]<1">参加</el-button>
             <el-button type="primary" v-on:click="toparticipate(item.contestId)"
                        v-if="statusList[index]===-1 && participateStatusList[index]">进入比赛</el-button>
@@ -110,6 +115,9 @@ export default {
     toparticipate:function(contestId){
       console.log(contestId);
       location="/contest/problem?contestId="+contestId;
+    },
+    toRank:function (contestId){
+      location="/contestEndRank?contestId="+contestId;
     }
   }
 }

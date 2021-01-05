@@ -27,6 +27,7 @@ import ContestStatus from "@/components/contest/ContestStatus";
 import ContestSubmit from "@/components/contest/ContestSubmit";
 import ContestProblemDetail from "@/components/contest/ContestProblemDetail";
 import Game from "@/components/Game";
+import ContestEndRank from "@/components/contest/ContestEndRank";
 
 
 Vue.use(Router)
@@ -167,6 +168,12 @@ const routes = [{
                 component: ContestEdit,
                 meta: {
                     name: '新建比赛'
+                }
+            },  {
+                path: '/contestEndRank',
+                component: ContestEndRank,
+                meta: {
+                    name: '比赛结果'
                 }
             }, {
                 path: '/contest',

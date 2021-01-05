@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: "ContestRank",
+  name: "ContestEndRank",
   data(){
     return {
       statusList:[],
@@ -48,7 +48,7 @@ export default {
     }
   },
   created() {
-    this.contestId=sessionStorage.getItem("contestId");
+    this.contestId=window.location.href.split("?")[1].split("=")[1];
     this.getRankList();
   },
   methods:{
