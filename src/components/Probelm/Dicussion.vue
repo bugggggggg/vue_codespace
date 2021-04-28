@@ -58,7 +58,7 @@ export default {
   methods:{
     getDiscussionList:function() {
       //const url='http://localhost:8081/';
-      const url = 'http://106.15.234.251:8081/';
+      const url = 'http://106.14.67.53:8081/';
       this.$axios.get(url + 'discussion/all',
           { params: { pagenum: this.pagenum, pagesize: this.pagesize, problemId:this.problemId }})
           .then((response) => {
@@ -87,7 +87,7 @@ export default {
 
     comment:function(){
     //  const url='http://localhost:8081/';
-      const url='http://106.15.234.251:8081/';
+      const url='http://106.14.67.53:8081/';
       this.$axios.post(url+'discussion/add',
           {discussionUid:this.userId,
             content:this.content,

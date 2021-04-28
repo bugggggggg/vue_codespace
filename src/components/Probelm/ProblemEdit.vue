@@ -99,7 +99,7 @@ export default {
       }
 
       //const url='http://localhost:8081/';
-      const url='http://106.15.234.251:8081/';
+      const url='http://106.14.67.53:8081/';
       this.$axios.post(url+'/addProblem',
           {
             problemName:this.problem.problemName,

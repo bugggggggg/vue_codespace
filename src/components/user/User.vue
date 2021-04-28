@@ -123,7 +123,7 @@ export default {
   methods:{
     getUserInformation:function (){
       //const url='http://localhost:8081/';
-      const url='http://106.15.234.251:8081/';
+      const url='http://106.14.67.53:8081/';
       this.$axios.get(url + 'user/index',
           {params: {userId:this.userId}})
           .then((response) => {
@@ -143,7 +143,7 @@ export default {
 
     getAcceptProblem:function (){
       //const url='http://localhost:8081/';
-      const url='http://106.15.234.251:8081/';
+      const url='http://106.14.67.53:8081/';
       this.$axios.get(url + 'user/accept',
           {params: {userId:this.userId}})
           .then((response) => {

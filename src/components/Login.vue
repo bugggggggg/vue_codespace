@@ -22,7 +22,7 @@
           <el-input class="form-input" v-model="password" placeholder="密码" show-password>
           </el-input>
         </el-form-item>
-        
+
         <el-form-item class="login">
           <el-button type="primary" class="form-button" v-on:click="login" round id="login">登录</el-button>
         </el-form-item>
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    
+
   </div>
 </template>
 
@@ -68,7 +68,7 @@ export default {
       }
 
       //const url='http://localhost:8081/';
-      const url = 'http://106.15.234.251:8081/';
+      const url = 'http://106.14.67.53:8081/';
       this.$axios.post(url + 'login',
           {email: this.email,password: this.password})
           .then(function(response) {
@@ -99,7 +99,7 @@ export default {
 
     logout:function() {
       //const url='http://localhost:8081/';
-      //const url='http://106.15.234.251:8081/';
+      //const url='http://106.14.67.53:8081/';
       console.log("请求退出登录");
         sessionStorage.setItem("isLogin", false);
         sessionStorage.removeItem("userid" );
@@ -113,7 +113,7 @@ export default {
     getPassword:function () {
 
       //const url='http://localhost:8081/';
-      const url='http://106.15.234.251:8081/';
+      const url='http://106.14.67.53:8081/';
       this.$axios.get(url+'getPasswordByEmail',
           {params: {email:this.email}})
 

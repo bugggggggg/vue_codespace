@@ -69,7 +69,7 @@ export default {
       console.log("申请邮箱验证码");
 
       //const url='http://localhost:8081/';
-      const url='http://106.15.234.251:8081/';
+      const url='http://106.14.67.53:8081/';
       this
           .$axios.post(url + 'getVerifyCode',
           { email:this.email} )
@@ -100,7 +100,7 @@ export default {
 
         if(this.password === this.confirmPassword){
           //const url='http://localhost:8081/';
-          const url = 'http://106.15.234.251:8081/';
+          const url = 'http://106.14.67.53:8081/';
           this.$axios.post(url + 'register',
               { "username":this.username,
                 "password":this.password,
