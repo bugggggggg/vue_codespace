@@ -1,12 +1,12 @@
 <template>
   <div class="userstatus_container">
-
+  <!--
     <el-card>
       <el-input placeholder="请输入要查找的题号" v-model="query" >
         <el-button slot="append" icon="el-icon-search" v-on:click="getStatusList"></el-button>
       </el-input>
     </el-card>
-
+  -->
     <el-row>
       <el-table :data="statusList" >
         <el-table-column label="提交编号" prop="submissionId" >
@@ -27,8 +27,10 @@
         <el-table-column label="提交时间" prop="submissionSubmitTime" width="200px">
         </el-table-column>
 
+        <!--
         <el-table-column label="消耗内存" prop="submissionUsedMemory" >
         </el-table-column>
+        -->
 
         <el-table-column label="消耗时间" prop="submissionUsedTime" >
         </el-table-column>
@@ -81,8 +83,7 @@ export default {
   },
   methods: {
     getStatusList: function() {
-      //const url='http://localhost:8081/';
-      const url = 'http://106.15.234.251:8081/';
+      const url=this.APi;
       this.$axios.get(url + 'status',
           { params: { pagenum: this.pagenum,
               pagesize: this.pagesize,
@@ -93,6 +94,11 @@ export default {
             if (data.code === 200) {
               this.statusList = data.data.statusList;
               this.total = data.data.total;
+
+              for(var i=0;i<this.statusList.length;i++)
+              {
+                this.statusList[i].languageId="c++"
+              }
 
               //console.log(this.problemList);
             } else {

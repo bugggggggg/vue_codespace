@@ -67,8 +67,7 @@ export default {
         alert("请正确输入");
       }
 
-      //const url='http://localhost:8081/';
-      const url = 'http://106.14.67.53:8081/';
+      const url=this.APi;
       this.$axios.post(url + 'login',
           {email: this.email,password: this.password})
           .then(function(response) {
@@ -112,8 +111,8 @@ export default {
 
     getPassword:function () {
 
-      //const url='http://localhost:8081/';
-      const url='http://106.14.67.53:8081/';
+
+      const url=this.APi;
       this.$axios.get(url+'getPasswordByEmail',
           {params: {email:this.email}})
 

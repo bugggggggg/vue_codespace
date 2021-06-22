@@ -75,8 +75,7 @@ export default {
   },
   methods:{
     getProblemList:function() {
-      //const url='http://localhost:8081/';
-      const url = 'http://106.14.67.53:8081/';
+      const url=this.APi;
       this.$axios.get(url + 'problemList',
           { params: { pagenum: this.pagenum, pagesize: this.pagesize, query: this.query }})
       .then((response) => {

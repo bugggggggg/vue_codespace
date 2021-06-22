@@ -71,8 +71,7 @@ export default {
         alert("请选择要提交的题目");
         return ;
       }
-      //const url='http://localhost:8081/';
-      const url = 'http://106.14.67.53:8081/';
+      const url=this.APi;
       this.$axios.post(url + 'contest/judge',
           { language: this.language,
             languageId: this.languageId,
@@ -83,9 +82,7 @@ export default {
           })
           .then((response) => {
             console.log(response);
-            alert(response.data.data.submissionJudgeResult
-                + "   "
-                +response.data.data.error);
+            alert(response.data.data.submissionJudgeResult);
             location='/contest/status';
           })
     },
@@ -101,8 +98,7 @@ export default {
 
     },
     getProblemList:function() {
-      //const url='http://localhost:8081/';
-      const url = 'http://106.14.67.53:8081/';
+      const url=this.APi;
       this.$axios.get(url + 'contest/problem',
           { params: { contestId:this.contestId }})
           .then((response) => {

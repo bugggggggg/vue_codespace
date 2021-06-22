@@ -9,7 +9,9 @@ import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 
 import './assets/css/global.css'
+import Api from "@/router/Api"
 
+Vue.prototype.APi=Api.serverSrc
 
 Vue.prototype.$axios = axios
 Vue.use(ElementUI);

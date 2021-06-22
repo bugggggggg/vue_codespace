@@ -98,8 +98,7 @@ export default {
         return;
       }
 
-      //const url='http://localhost:8081/';
-      const url='http://106.14.67.53:8081/';
+      const url=this.APi;
       this.$axios.post(url+'/addProblem',
           {
             problemName:this.problem.problemName,

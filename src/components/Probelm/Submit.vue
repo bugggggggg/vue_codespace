@@ -56,8 +56,7 @@ export default {
     submit:function (){
       //console.log(this.code);
 
-      //const url='http://localhost:8081/';
-      const url = 'http://106.14.67.53:8081/';
+      const url=this.APi;
       this.$axios.post(url + 'problem/judge',
           { language: this.language,
                 languageId: this.languageId,
@@ -67,9 +66,7 @@ export default {
           })
           .then((response) => {
             console.log(response);
-            alert(response.data.data.submissionJudgeResult
-                + "   "
-                +response.data.data.error);
+            alert(response.data.data.submissionJudgeResult);
             location='/status';
           })
     },

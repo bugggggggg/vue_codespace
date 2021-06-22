@@ -58,8 +58,7 @@ export default {
   },
   methods:{
     getContestList:function() {
-      //const url='http://localhost:8081/';
-      const url = 'http://106.14.67.53:8081/';
+      const url=this.APi;
       this.$axios.get(url + 'allContest',
           { params: { pagenum: this.pagenum, pagesize: this.pagesize ,userid:this.userid}})
           .then((response) => {
@@ -91,8 +90,7 @@ export default {
     },
     participate:function(contestId){
       console.log(contestId);
-      //const url='http://localhost:8081/';
-      const url = 'http://106.14.67.53:8081/';
+      const url=this.APi;
       this.$axios.get(url + 'participate',
           { params: { contestid:contestId ,userid:this.userid}})
           .then((response) => {

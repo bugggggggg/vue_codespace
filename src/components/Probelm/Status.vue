@@ -27,10 +27,12 @@
         <el-table-column label="提交时间" prop="submissionSubmitTime" >
         </el-table-column>
 
+        <!--
         <el-table-column label="消耗内存" prop="submissionUsedMemory" >
         </el-table-column>
+        -->
 
-        <el-table-column label="消耗时间" prop="submissionUsedTime" >
+        <el-table-column label="消耗时间(ms)" prop="submissionUsedTime" >
         </el-table-column>
 
         <!--
@@ -76,8 +78,7 @@ export default {
   },
   methods: {
     getStatusList: function() {
-      //const url='http://localhost:8081/';
-      const url = 'http://106.15.234.251:8081/';
+      const url=this.APi;
       this.$axios.get(url + 'statusList',
           { params: { pagenum: this.pagenum, pagesize: this.pagesize, query: this.query }})
           .then((response) => {
@@ -86,6 +87,11 @@ export default {
             if (data.code === 200) {
               this.statusList = data.data.statusList;
               this.total = data.data.total;
+
+              for(var i=0;i<this.statusList.length;i++)
+              {
+                this.statusList[i].languageId="c++"
+              }
 
               //console.log(this.problemList);
             } else {
